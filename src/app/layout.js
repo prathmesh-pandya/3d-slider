@@ -1,6 +1,10 @@
 import { Inter } from 'next/font/google';
 import './globals.css';
-import { GoogleMapsEmbed, GoogleTagManager ,YouTubeEmbed} from '@next/third-parties/google';
+import {
+  GoogleMapsEmbed,
+  GoogleTagManager,
+  YouTubeEmbed,
+} from '@next/third-parties/google';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -21,9 +25,9 @@ export default function RootLayout({ children }) {
           mode='place'
           q='Brooklyn+Bridge,New+York,NY'
         />
-        <YouTubeEmbed videoid="ogfYd705cRs" height={400} params="controls=0" />
+        <YouTubeEmbed videoid='ogfYd705cRs' height={400} params='controls=0' />
       </body>
-      <GoogleTagManager gtmId='GTM-W6W5C3D' />
+      <GoogleTagManager gtmId='GTM-5FSB759L' />
     </html>
   );
 }
