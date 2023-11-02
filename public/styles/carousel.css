@@ -1,0 +1,27 @@
+.css-1fzpoyk {
+  position: relative;
+  transition: ease-in 0.5 !important ;
+  opacity: 1 !important;
+}
+.css-1fzpoyk:first-child img {
+  transform: translateY(0) translateX(-34%) scale(1.5) perspective(1000px)
+    rotateY(-35deg);
+}
+.css-1fzpoyk:last-child img {
+  transform: translateY(0) translateX(34%) scale(1.5) perspective(1000px)
+    rotateY(35deg);
+}
+
+.slider-3d-container {
+  margin:100px;
+}
+.next-btn-3d-slider , .prev-btn-3d-slider {
+  position: absolute;
+  top: 20% !important;
+}
+.next-btn-3d-slider{
+  right: 60px !important;  
+}
+.prev-btn-3d-slider{
+  left: 60px !important;
+}
