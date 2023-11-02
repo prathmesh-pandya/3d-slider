@@ -18,13 +18,13 @@ export default function RootLayout({ children }) {
     <html lang='en'>
       <body className={inter.className}>
         {children}
-        <GoogleMapsEmbed
+        {/* <GoogleMapsEmbed
           apiKey='AIzaSyBmZUtDDF0hsC4ZM5bW32au8c2MZ5utJeA'
           height={200}
           width='100%'
           mode='place'
           q='Brooklyn+Bridge,New+York,NY'
-        />
+        /> */}
         <YouTubeEmbed videoid='ogfYd705cRs' height={400} params='controls=0' />
       </body>
       <GoogleTagManager gtmId='GTM-5FSB759L' />
