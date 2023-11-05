@@ -1,27 +1,59 @@
+/* Define a keyframe for 3D-to-2D transition */
+@keyframes from3DTo2D {
+  0% {
+    transform: translateY(0) translateX(-34%) scale(1) perspective(1000px) rotateY(-35deg);
+  }
+  100% {
+    transform: translateY(0) translateX(0) scale(1) perspective(0) rotateY(0deg);
+  }
+}
+
+/* Define a keyframe for 2D-to-3D transition */
+@keyframes from2DTo3D {
+  0% {
+    transform: translateY(0) translateX(34%) scale(1) perspective(0) rotateY(35deg);
+  }
+  100% {
+    transform: translateY(0) translateX(0) scale(1) perspective(1000px) rotateY(0deg);
+  }
+}
+
 .css-1fzpoyk {
   position: relative;
-  transition: ease-in 0.5 !important ;
+  transition: ease-in 0.5s !important;
   opacity: 1 !important;
 }
-.css-1fzpoyk:first-child img {
-  transform: translateY(0) translateX(-34%) scale(1.5) perspective(1000px)
-    rotateY(-35deg);
+
+/* Apply styles to the middle image (initially 2D) */
+.css-1fzpoyk img {
+  transform: translateY(0) translateX(0) scale(1) perspective(0) rotateY(0deg);
+  animation: from2DTo3D 1s forwards;
 }
+
+/* Apply styles to the first child image (initially 3D) */
+.css-1fzpoyk:first-child img {
+  transform: translateY(0) translateX(-34%) scale(1.5) perspective(1000px) rotateY(-35deg);
+}
+
+/* Apply styles to the last child image (initially 3D) */
 .css-1fzpoyk:last-child img {
-  transform: translateY(0) translateX(34%) scale(1.5) perspective(1000px)
-    rotateY(35deg);
+  transform: translateY(0) translateX(34%) scale(1.5) perspective(1000px) rotateY(35deg);
 }
 
 .slider-3d-container {
-  margin:100px;
+  margin: 100px;
 }
-.next-btn-3d-slider , .prev-btn-3d-slider {
+
+.next-btn-3d-slider,
+.prev-btn-3d-slider {
   position: absolute;
   top: 20% !important;
 }
-.next-btn-3d-slider{
-  right: 60px !important;  
+
+.next-btn-3d-slider {
+  right: 60px !important;
 }
-.prev-btn-3d-slider{
+
+.prev-btn-3d-slider {
   left: 60px !important;
 }

@@ -16,6 +16,7 @@
     "react-dom": "^18",
     "react-spring": "^9.7.3",
     "react-spring-3d-carousel": "^1.2.1",
+    "uuid": "3.3.2",
     "uuidv4": "^6.2.13"
   }
 }
