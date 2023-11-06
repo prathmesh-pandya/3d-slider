@@ -55,8 +55,8 @@ function VerticalCarousel({
       <div
         className="carousel"
         style={{
-          border: "1px solid black",
           height: "100%",
+          border: "1px solid black",
           width: "100%",
           background: "red",
           position: "relative",

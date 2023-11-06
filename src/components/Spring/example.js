@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import VerticalCarousel from "./VerticalCarousel";
 import Image from "next/image";
+import SecondVerticalCarousel from "./approach-2/SecondVerticalCarousel";
+import { config } from "react-spring";
 
 const slides = [
   {
@@ -65,15 +67,25 @@ function Example() {
   const [goToSlide] = useState(0);
   const [offsetRadius] = useState(1);
   const [showNavigation] = useState(true);
-  const [config] = useState({ friction: 16, tension: 200 });
-
+  const config = useState({
+    friction: 5, // Lower values make it bouncier and faster
+    tension: 140, // Lower values make it faster
+  });
   return (
-    <VerticalCarousel
-      slides={slides}
-      offsetRadius={offsetRadius}
-      showNavigation={showNavigation}
-      animationConfig={config}
-    />
+    <>
+      <SecondVerticalCarousel
+        slides={slides}
+        offsetRadius={offsetRadius}
+        showNavigation={showNavigation}
+        animationConfig={config}
+      />
+      {/* <VerticalCarousel
+        slides={slides}
+        offsetRadius={offsetRadius}
+        showNavigation={showNavigation}
+        animationConfig={config}
+      /> */}
+    </>
   );
 }
 
