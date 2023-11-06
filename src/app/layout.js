@@ -1,10 +1,5 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import {
-  GoogleMapsEmbed,
-  GoogleTagManager,
-  YouTubeEmbed,
-} from "@next/third-parties/google";
 
 const inter = Inter({ subsets: ["latin"] });
 

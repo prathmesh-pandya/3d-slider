@@ -1,10 +1,6 @@
-"use client";
-import React, { useState, useEffect } from "react";
-import Slide from "./Slide";
-
-function mod(a, b) {
-  return ((a % b) + b) % b;
-}
+'use client';
+import React, { useState, useEffect } from 'react';
+import Slide from './Slide';
 
 /**
  *
@@ -18,20 +14,14 @@ function VerticalCarousel({
   animationConfig,
 }) {
   const [index, setIndex] = useState(0);
-  const [direction, setDirection] = useState("right");
 
   const modBySlidesLength = (idx) => {
     return ((idx % slides.length) + slides.length) % slides.length;
   };
 
   const moveSlide = (direction) => {
-    setDirection(direction);
     setIndex((currentIndex) => modBySlidesLength(currentIndex + direction));
   };
-
-  const centerIndex = modBySlidesLength(index);
-  const leftIndex = modBySlidesLength(centerIndex - 1);
-  const rightIndex = modBySlidesLength(centerIndex + 1);
 
   const clampOffsetRadius = (offsetRadius) => {
     const upperBound = Math.floor((slides.length - 1) / 2);
@@ -42,55 +32,43 @@ function VerticalCarousel({
       : offsetRadius;
   };
 
-  // const prathemsh = slides[leftIndex].content;
-  // const prathemsh1 = slides[centerIndex].content;
-  // const prathemsh2 = slides[rightIndex].content;
+  const getPresentableSlides = () => {
+    let presentableSlides = [];
+    for (let i = -offsetRadius; i < 1 + offsetRadius; i++) {
+      presentableSlides.push(slides[modBySlidesLength(index + i)]);
+    }
+    return presentableSlides;
+  };
 
-  // // console.log(prathemsh, "prathmesh-----------");
-  // // console.log(prathemsh1, "prathmesh1-----------");
-  // // console.log(prathemsh2, "prathmesh2-----------");
+  const presentableSlides = getPresentableSlides();
 
   return (
     <>
       <div
-        className="carousel"
+        className='carousel'
         style={{
-          height: "100%",
-          border: "1px solid black",
-          width: "100%",
-          background: "red",
-          position: "relative",
+          height: '100%',
+          border: '1px solid black',
+          width: '100%',
+          background: 'red',
+          position: 'relative',
         }}
       >
-        <Slide
-          content={slides[leftIndex].content}
-          offsetRadius={clampOffsetRadius(offsetRadius)}
-          index={-1}
-          animationConfig={animationConfig}
-          moveSlide={moveSlide}
-          direction="left"
-        />
-        <Slide
-          content={slides[centerIndex].content}
-          offsetRadius={clampOffsetRadius(offsetRadius)}
-          index={0}
-          animationConfig={animationConfig}
-          moveSlide={moveSlide}
-          direction="center"
-        />
-        <Slide
-          content={slides[rightIndex].content}
-          offsetRadius={clampOffsetRadius(offsetRadius)}
-          index={1}
-          animationConfig={animationConfig}
-          moveSlide={moveSlide}
-          direction="right"
-        />
+        {presentableSlides.map((slide, presentableIndex) => (
+          <Slide
+            key={slide.key}
+            content={slide.content}
+            moveSlide={moveSlide}
+            offsetRadius={clampOffsetRadius(offsetRadius)}
+            index={presentableIndex}
+            animationConfig={animationConfig}
+          />
+        ))}
       </div>
       {showNavigation && (
-        <div className="navigation">
-          <button onClick={() => moveSlide(1)}>prev</button>
-          <button onClick={() => moveSlide(-1)}>next</button>
+        <div className='navigation'>
+          <button onClick={() => moveSlide(-1)}>prev</button>
+          <button onClick={() => moveSlide(1)}>next</button>
         </div>
       )}
     </>
