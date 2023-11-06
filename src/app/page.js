@@ -1,11 +1,15 @@
 // import CarouselComponent from "@/components/Carousel";
 import {
   LoginLink,
+  LogoutLink,
   RegisterLink,
 } from '@kinde-oss/kinde-auth-nextjs/components';
+import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/dist/server';
 // import Interpolate from "@/components/Spring/example2";
 
-const Home = () => {
+const Home = async () => {
+  const { isAuthenticated } = getKindeServerSession();
+  const isAuthed=await isAuthenticated()
   return (
     <div
       style={{
@@ -14,8 +18,18 @@ const Home = () => {
         margin: '0 auto',
       }}
     >
-      <RegisterLink>Register here</RegisterLink>
-      <LoginLink>Login</LoginLink>
+      {isAuthed ? (
+        <LogoutLink>Logout</LogoutLink>
+      ) : (
+        <>
+          <div>
+            <LoginLink>Login</LoginLink>
+          </div>
+          <div>
+            <RegisterLink>Register here</RegisterLink>
+          </div>
+        </>
+      )}
       {/* <Interpolate/> */}
       {/* <CarouselComponent/> */}
     </div>
