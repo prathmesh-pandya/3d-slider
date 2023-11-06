@@ -60,7 +60,7 @@ const CarouselComponent = () => {
         <Carousel
           goToSlide={goToSlide}
           slides={slides}
-          animationConfig={config.slow}
+          animationConfig={config.molasses}
           offsetRadius={4}
         />
         <button

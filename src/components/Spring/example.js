@@ -73,18 +73,18 @@ function Example() {
   });
   return (
     <>
-      <SecondVerticalCarousel
-        slides={slides}
-        offsetRadius={offsetRadius}
-        showNavigation={showNavigation}
-        animationConfig={config}
-      />
-      {/* <VerticalCarousel
+      {/* <SecondVerticalCarousel
         slides={slides}
         offsetRadius={offsetRadius}
         showNavigation={showNavigation}
         animationConfig={config}
       /> */}
+      <VerticalCarousel
+        slides={slides}
+        offsetRadius={offsetRadius}
+        showNavigation={showNavigation}
+        animationConfig={config}
+      />
     </>
   );
 }

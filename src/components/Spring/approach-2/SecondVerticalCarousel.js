@@ -36,7 +36,7 @@ function SecondVerticalCarousel({
     return presentableSlides;
   };
 
-
+  const presentableSlides = getPresentableSlides();
 
   let navigationButtons = null;
   if (showNavigation) {
@@ -60,7 +60,7 @@ function SecondVerticalCarousel({
           position: "relative",
         }}
       >
-        {getPresentableSlides().map((slide, presentableIndex) => (
+        {presentableSlides.map((slide, presentableIndex) => (
           <SecondSlide
             key={slide.key}
             content={slide.content}
