@@ -1,8 +1,9 @@
 // import CarouselComponent from "@/components/Carousel";
+import Grid from '@/components/Grid-Question/Grid';
 import {
   LoginLink,
   RegisterLink,
-} from '@kinde-oss/kinde-auth-nextjs/components';
+} from '@kinde-oss/kinde-auth-nextjs/server';
 // import Interpolate from "@/components/Spring/example2";
 
 const Home = () => {
@@ -14,8 +15,9 @@ const Home = () => {
         margin: '0 auto',
       }}
     >
-      <RegisterLink>Register here</RegisterLink>
-      <LoginLink>Login</LoginLink>
+      <Grid/>
+      {/* <RegisterLink>Register here</RegisterLink> */}
+      {/* <LoginLink>Login</LoginLink> */}
       {/* <Interpolate/> */}
       {/* <CarouselComponent/> */}
     </div>
